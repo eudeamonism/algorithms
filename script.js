@@ -33,5 +33,14 @@ function Node(value, next, prev) {
     this.next = next;
     this.prev = prev;
 }
-
-var node1 = new Node(100, 'node2', null);
+//put a method in a LinkedList prototype
+//created a new node with contructor function
+//value prop passed through method
+//this.head if empty is null b/c originally null
+//new Node is the head of the list, set to bottom
+LinkedList.prototype.addToHead = function (value) {
+    var newNode = new Node(value, this.head, null);
+    if (this.head) this.head.prev = newNode;
+    else this.tail = newNode;
+    this.head = newNode;
+}
